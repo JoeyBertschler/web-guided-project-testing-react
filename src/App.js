@@ -10,17 +10,21 @@ export default function App() {
   const [error, setError] = useState("");
   const [missions, setMissions] = useState([]);
 
-  const getData = () => {
+  const getData = async () => {
     setIsFetchingData(true);
+    const res = await 
     fetchMissions()
-      .then(res => {
-        setIsFetchingData(false);
-        setMissions(res.data);
-      })
-      .catch(err => {
-        setIsFetchingData(false);
-        setError(err.message);
-      });
+    setIsFetchingData(false)
+    setMissions(res.data)
+    // fetchMissions()
+    //   .then(res => {
+    //     setIsFetchingData(false);
+    //     setMissions(res.data);
+    //   })
+    //   .catch(err => {
+    //     setIsFetchingData(false);
+    //     setError(err.message);
+    //   });
   };
   return (
     <div className="App">
